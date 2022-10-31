@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+body {
+    background: linear-gradient(to right, rgb(99, 5, 88), rgb(185, 16, 16));
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* -------------- header ----------------- */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 200px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+}
+
+header .container p {
+    font-size: 58px;
+    font-family: 'Dela Gothic One', cursive;
+    text-align: center;
+    color: white;
+    /* padding: 0 20px; */
+}
+
+/* --------------- btn ------------------- */
+.button {
+    /* margin-top: 50px; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    cursor: pointer;
+    width: 150px;
+    height: 100px;
+    background: linear-gradient(to right, rgb(69, 3, 251), rgb(3, 115, 252));
+    box-shadow: 0 4px darkblue;
+    border-radius: 45%;
+    transition: 0.3s;
+    font-size: 40px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    box-shadow: none;
+    transform: translateY(4px);
+    transition: 0.3s;
+}
+
+#com_hand {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.img {
+    width: 50%;
+}
+
+.result1 {
+    font-size: 150px;
+    font-family: 'Dela Gothic One', cursive;
+    color: white;
+}
+
+.result2 {
+    display: none;
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    transform: rotate(-30deg);
+    transition: 0.5s;
+}
+
+.result3 {
+    display: none;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    transform: rotate(-30deg);
+    transition: 0.5s;
+}
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sanitize.css">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <!-- ------------ header ------------- -->
+  <header>
+    <div class="container">
+      <div class="text">
+        <p>じゃん</p>
+        <p>けん</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container">
+      <div class="button">
+        <button id="gu_btn" class="btn">👊</button>
+        <button id="cho_btn" class="btn">✌️</button>
+        <button id="par_btn" class="btn">🖐</button>
+      </div>
+
+      <div id="com_hand">
+        <img class="img" src="img/sazaesan_0.jpg" alt="" srcset="">
+      </div>
+
+      <div class="result1">
+        <div class="result2"></div>
+        <div class="result3"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //ここに処理を追加
+
+    const min = 1;
+    const max = 3;
+    const cpu = function () {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    // 1 gu 2 cho 3 par
+
+    const draw = function () {
+      $('.result2').text('あいこ');
+      $('.result3').text('もう1回');
+      $('.result2').fadeIn(500);
+      $('.result3').fadeIn(500);
+      $('.result2').delay(500).fadeOut(1000);
+      $('.result3').delay(500).fadeOut(1000);
+    }
+    const win = function () {
+      $('.result2').text('勝ち！');
+      $('.result3').text('おめでと');
+      $('.result2').fadeIn(500);
+      $('.result3').fadeIn(500);
+      $('.result2').delay(500).fadeOut(1000);
+      $('.result3').delay(500).fadeOut(1000);
+    }
+    const lose = function () {
+      $('.result2').text('負け！');
+      $('.result3').text('ゴミ！');
+      $('.result2').fadeIn(500);
+      $('.result3').fadeIn(500);
+      $('.result2').delay(500).fadeOut(1000);
+      $('.result3').delay(500).fadeOut(1000);
+    }
+
+    // 1 == gu  2 == cho  3 == par
+
+    // グーボタンを押したとき
+    $('#gu_btn').on('click', () => {
+      let number = cpu();
+      console.log(number); //確認用
+      if (number === 1) {
+        $('.img').attr('src', 'img/sazaesan_gu.jpg');
+        draw();
+      } else if (number === 2) {
+        $('.img').attr('src', 'img/sazaesan_cho.jpg');
+        win();
+      } else if (number === 3) {
+        $('.img').attr('src', 'img/sazaesan_par.jpg');
+        lose();
+      }
+    })
+
+    // チョキボタンを押したとき
+    $('#cho_btn').on('click', () => {
+      let number = cpu();
+      console.log(number); //確認用
+      if (number === 1) {
+        $('.img').attr('src', 'img/sazaesan_gu.jpg');
+        lose();
+      } else if (number === 2) {
+        $('.img').attr('src', 'img/sazaesan_cho.jpg');
+        draw();
+      } else if (number === 3) {
+        $('.img').attr('src', 'img/sazaesan_par.jpg');
+        win();
+      }
+    })
+
+    // パーボタンを押したとき
+    $('#par_btn').on('click', () => {
+      let number = cpu();
+      console.log(number); //確認用
+      if (number === 1) {
+        $('.img').attr('src', 'img/sazaesan_gu.jpg');
+        win();
+      } else if (number === 2) {
+        $('.img').attr('src', 'img/sazaesan_cho.jpg');
+        lose();
+      } else if (number === 3) {
+        $('.img').attr('src', 'img/sazaesan_par.jpg');
+        draw();
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>
